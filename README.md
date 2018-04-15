@@ -1,0 +1,5 @@
+# scanqrcode
+使用的前端框架amaze ui
+使用了mobiscroll的jquery插件的时间
+使用了FileReader来显示图片
+使用formdata来提交表单数据
