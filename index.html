@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
 		<title>手机号码</title>
 		
 		<!-- Add to homescreen for Chrome on Android -->
@@ -37,6 +38,13 @@
 		</style>
 	</head>
 	<body>
+		
+		<header data-am-widget="header"
+          class="am-header am-header-default">
+	      <h1 class="am-header-title">
+	        	  停车系统
+	      </h1>
+		 </header>
 		
 		<!--手机绑定开始-->
 		
@@ -76,27 +84,39 @@
 		<div class="menu">
 			<legend>菜单列表</legend>
 			
-			<div class="am-g">
-				<div class="am-u-sm-6">
+			<ul class="am-list">
+			  <li>
+			  	<div class="parkStatus">
+			  		<button type="button" class="am-btn am-btn-primary park">停车</button>
+					<span class="status"></span>
+			  	</div>
+			  </li>
+			  <li>
+			  	<button type="button" class="am-btn am-btn-primary violation">违规举报</button>
+			  </li>
+			  <li>
+			  	<button type="button" class="am-btn am-btn-primary usedocument">使用文档</button>
+			  </li>
+			</ul>
+			
+			<!--<div class="am-g">
+				<div class="am-u-sm-4">
 					<button type="button" class="am-btn am-btn-primary park"  
 				  		data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width: 400, height: 225}">停车</button>
 				</div>
-				<div class="am-u-sm-6">
+				<div class="am-u-sm-4">
 					<button type="button" class="am-btn am-btn-primary violation">违规举报</button>
 				</div>
-			</div>
+				<div class="am-u-sm-4">
+					<button type="button" class="am-btn am-btn-primary usedocument">使用文档</button>
+				</div>
+			</div>-->
 		
 		</div>
 		
 		<input type="text" placeholder="请选择时长" class="minute-input am-btn-block"/>
 		<div style="display: none;">
 		    <select class="minute" placeholder="请您选择时长(分钟)">
-	          <option value="5"><span>5</span></option>
-			  <option value="10"><span>10</span></option>
-			  <option value="15"><span>15</span></option>
-			  <option value="20"><span>20</span></option>
-			  <option value="25"><span>25</span></option>
-			  <option value="30"><span>30</span></option>
 	 		</select>
 		</div>
 	
@@ -104,7 +124,7 @@
 		  <div class="am-modal-dialog">
 		    <div class="am-modal-hd"></div>
 		    <div class="am-modal-footer">
-		      <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+		      <span class="am-modal-btn" data-am-modal-confirm >确定</span>
 		    </div>
 		  </div>
 		</div>
@@ -117,6 +137,7 @@
 		    <div class="am-modal-hd"></div>
 		    <div class="am-modal-footer">
 		      <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+		      <span class="am-modal-btn" data-am-modal-cancel>取消</span>
 		    </div>
 		  </div>
 		</div>
@@ -137,17 +158,17 @@
 			  <label for="name">上传图片</label>
 			  <div>
 				  <span class="am-form-group am-form-file">
-				  	<img id="image" src="img/uploadimag.jpg"/>
+				  	<img id="image" src="img/uploadimag.png"/>
 				  	<input id="image_upload" name="image_upload" type="file" accept="image/*"/>
 				  	<small style="color: #dd4b39;display: none;">请上传照片</small>
 				  </span>
 				  <span class="am-form-group am-form-file">
-				  	<img id="image_2" src="img/uploadimag.jpg"/>
+				  	<img id="image_2" src="img/uploadimag.png"/>
 				  	<input id="image_upload_2" name="image_upload_2" type="file" />
 				  	<small style="color: #dd4b39;display: none;">请上传照片</small>
 				  </span>
 				  <span class="am-form-group am-form-file"> 
-				  	<img id="image_3" src="img/uploadimag.jpg"/>
+				  	<img id="image_3" src="img/uploadimag.png"/>
 				  	<input id="image_upload_3" name="image_upload_3" type="file"/>
 				  	<small style="color: #dd4b39;display: none;">请上传照片</small>
 				  </span>
@@ -157,7 +178,7 @@
 			
 			<div class="am-form-group">
 				<label for="doc-ta-1">原因描述</label>
-				<textarea rows="10" cols="35" id="description" name="description"></textarea>
+				<textarea rows="7" cols="35" id="description" name="description"></textarea>
 			</div>
 			
 			<p>
@@ -173,6 +194,37 @@
 		</div>
 	
 		<!--违规举报结束-->
+		
+		<!--使用文档开始-->
+		<div class="helpdocument">
+			<p>
+				<legend>关于开始停车</legend>
+				第一步:点击停车，跳转到选择预约时间<br>
+				第二步:确定选择预约时间<br>
+				第三步:预约并开始停车<br>
+			</p>
+			
+			<p>
+				<legend>关于结束停车</legend>
+				第一步:点击停车，跳转到是否结束停车<br>
+				第二步:点击确定，跳转到结束停车成功。<br>
+				第三步:点击确定，跳转到菜单列表。<br>
+			</p>
+			
+			<p>
+				<legend>关于违规举报</legend>
+				第一步:填写相关信息，点击提交，跳转到菜单页面
+			</p>
+			<div class="am-g">
+				<button class="am-btn am-btn-success helpdocumentback am-btn-block">返回</button>
+			</div>
+			
+		</div>
+		<!--使用文档结束-->
+		
+		
+
+		
 		
 		
 	</body>
@@ -225,20 +277,72 @@
 			    	}
 			    })
 			}
+			
+			//用于显示状态
+			function displayStatus(url, uid, lotId){
+				var fname = "parkingData";
+				var fparam = '{"uid": "' + uid+'","lotId": "' + lotId+ '"}';
+				$.ajax({
+					type:"post",
+					url:url,
+					async:false,
+					data:{
+						fname:fname,
+						fparam:fparam
+					},
+					success:function(data){
+						var json = JSON.parse(data);
+						if(json.success == 1){
+							var tip = json.result.tip;
+							
+							if(tip == 1){
+								$(".status").html("(可预约)");
+								$(".park").html("停车");
+							}else if(tip == 2){
+								$(".status").html("停车中,停车的结束时间是:" + json.result.endTime);
+								$(".park").html("驶离");
+							}else if(tip == 4){
+								$(".status").html("(不可预约)");
+								$(".park").html("停车");
+							}
+						}
+					}
+				})
+			}
+		
+			
 		
 			$(document).ready(function(){
-				var url = "http://47.93.237.6:8080/wheelchair/getData.jsp";
+//				var url = "http://47.93.237.6:8080/wheelchair/getData.jsp";
+				var url = "https://47.93.237.6/wheelchair/getData.jsp";
 				//这个参数应该从二维码中获取
 //				var lotId = "d491ba20-2681-11e8-ae1d-00163e104758";
+				
 				var lotId = getUrlParam("lotId");
 				var uid = "";
+				if(getUrlParam("uid")){
+					uid = getUrlParam("uid");
+				}
+//				
+//				//手机绑定开始
 				
-				//手机绑定开始
+				//如果参数是含有其他参数
+				if(uid){
+					$(".telephonebind").hide();
+					$(".menu").show();
+					$(".violationsection").hide();
+					$(".helpdocument").hide();
+					displayStatus(url, uid, lotId)
+				}else{
+					//隐藏菜单列表
+					$(".menu").hide();
+					//隐藏违规举报
+					$(".violationsection").hide();
+					//隐藏帮助文档
+					$(".helpdocument").hide();
+				}
 				
-				//隐藏菜单列表
-				$(".menu").hide();
-				//隐藏违规举报
-				$(".violationsection").hide();
+				
 				
 				//验证电话号码是否有效
 				$(".telephone-value").on("blur", function(){
@@ -249,7 +353,7 @@
 							$("#my-confirm .am-modal-hd").html("请输入有效的电话号码");
 							$("#my-confirm").modal({
 								onConfirm:function(){
-									$(location).attr("href", "index.html");
+									$(location).attr("href", "index.html?lotId=" + lotId);
 								}
 							});
 						}
@@ -263,7 +367,7 @@
 						$("#my-confirm .am-modal-hd").html("电话号码为空，请您输入电话号码");
 						$("#my-confirm").modal({
 							onConfirm:function(){
-								$(location).attr("href", "index.html");
+								$(location).attr("href", "index.html?lotId=" + lotId);
 							}
 						});
 					}else{
@@ -292,9 +396,14 @@
 					$(".telephonebind").hide();
 					//显示菜单列表
 					$(".menu").show();
+					//隐藏帮助文档
+					$(".helpdocument").hide();
+					
+					
+					displayStatus(url, uid, lotId);
 					
 				})
-				
+//				fname = "parkingData";
 				
 				//手机绑定结束---------------------------------------------
 				
@@ -309,14 +418,14 @@
 					$(".menu").hide();
 					//显示违规举报
 					$(".violationsection").show();
+					//隐藏帮助文档
+					$(".helpdocument").hide();
 				})
-				
-				
-				var fname = "parkingData";
 				
 			
 				//开始停车
 				$(".park").on("click", function(){
+					var fname = "parkingData";
 					var fparam = '{"uid": "' + uid+'","lotId": "' + lotId+ '"}';
 					//向后台请求parkingData
 					$.ajax({
@@ -332,29 +441,48 @@
 							//成功的返回
 							if(json.success == 1){
 								$("#my-confirm .am-modal-hd").html(json.result.msg);
+								var tip = json.result.tip;
 								//当前车位未被预约，是否预约并直接停车?(社会车辆)
-								if(json.result.msg == "当前车位未被预约，是否预约并直接停车?(社会车辆)"){
+								if(tip == 1){
+									var today = new Date();
+									var endTime = new Date(json.result.startTime);
+									var intervalTime = ['<option value="5"><span>5</span></option>',
+														'<option value="10"><span>10</span></option>',
+														'<option value="15"><span>15</span></option>',
+														'<option value="20"><span>20</span></option>',
+														'<option value="25"><span>25</span></option>',
+														'<option value="30"><span>30</span></option>'];
+									
+									var interval = (endTime.getTime() - today.getTime())/(1000 * 60 );
+									for(var i=0; i < interval%5; i++){
+										$(intervalTime[i]).appendTo($(".minute"));
+									}
 									//是否预约
 									$("#my-confirm").modal({
+										closeViaDimmer:false,
 										onConfirm:function(){
-											$(".park").hide();
+											$(".parkStatus").hide();
 											$(".violation").hide();
+											$(".usedocument").hide();
 											$(".minute-input").show();
+											
+											//请您选择时长
+											$(".minute-input").on("click", function(){
+												$(".minute").mobiscroll("show");
+												return false;
+											})
+									
 										},
 										onCancel:function(){
+											$(location).attr("href","index.html?lotId=" + lotId + "&uid=" + uid);
 //											$(location).attr("href", "index.html?lotId=" + lotId);
 											//显示菜单列表
-											$(".menu").show();
+//											$(".menu").show();
 										}
 									});
 									
-									//请您选择时长
-									$(".minute-input").on("click", function(){
-										$(".minute").mobiscroll("show");
-										return false;
-									})
 									
-									var today = new Date();
+									
 									$(".minute").mobiscroll().select({
 										theme:"android-ics light",
 										mode:"scroller",
@@ -395,22 +523,26 @@
 											//预约成功并停车						
 											$("#my-confirm-minute").modal({
 												onConfirm:function(){
-													$(".park").show();
+													$(".parkStatus").show();
 													$(".violation").show();
+													$(".usedocument").show();
 													$(".minute-input").hide();
-													$(location).attr("href","index.html?lotId=" + lotId);
+													$(location).attr("href","index.html?lotId=" + lotId + "&uid=" + uid);
+													
 												}
 											});
 											
 										}
 									})
-								}else if(json.result.msg == "本人扫码，是否现在结束使用？"){
+								//是否停车结束
+								}else if(tip == 2){
 									fname = json.result.function;
 									$("#my-confirm .am-modal-hd").html(json.result.msg);
+									
 								
-									$("#my-confirm").modal({
+									var isOk = $("#my-confirm").modal({
+										closeViaDimmer:false,
 										onConfirm:function(){
-											console.log(json.result.msg);
 											$.ajax({
 												url:url,
 												type:"post",
@@ -431,7 +563,8 @@
 											//成功的结束
 											$("#my-confirm-minute").modal({
 												onConfirm:function(){
-													$(location).attr("href","index.html?lotId=" + lotId);
+													$(location).attr("href","index.html?lotId=" + lotId + "&uid=" + uid);
+												
 													//显示菜单列表
 //													$(".menu").show();
 													//显示手机绑定
@@ -439,20 +572,36 @@
 //													$(".menu").hide();
 												}
 											});
-									
+											
+										},
+										onCancel:function(){
+											$(location).attr("href","index.html?lotId=" + lotId + "&uid=" + uid);
 										}
 									});
+									
+									console.log(isOk);
 									
 //									fname = "updateAppStatus";
 									
 									
-								}else if(json.result.msg == "非预约者本人，当前车位被预约，用户已超时（超过起始预约时间20分钟），是否举报？"){
+								}else if(tip == 3){
 //									$(location).attr("href", "violation.html?uid=" + uid + "&lotId=" + lotId);
 									//隐藏菜单列表
 									$(".menu").hide();
 									//显示违规举报
 									$(".violationsection").show();
-								}else{
+									//隐藏帮助文档
+									$(".helpdocument").hide();
+								}else if(tip == 4){
+									$("#my-confirm-minute .am-modal-hd").html(json.result.msg);
+									$("#my-confirm-minute").modal({
+										onConfirm:function(){
+											$(".menu").show();
+											$(".violationsection").hide();	
+											//隐藏帮助文档
+											$(".helpdocument").hide();
+										}
+									});
 								}
 							}
 						}
@@ -483,9 +632,18 @@
 				    var fparam = '{"description":"'+description +'","carNum":"'+carNum+'","lotId":"'+lotId+'","uid":"'+uid+'"}';
 				    
 				    var formData = new FormData();
-				    formData.append("file1", image_upload);
-				    formData.append("file2", image_upload_2);
-				    formData.append("file3", image_upload_3);
+				    if(image_upload != "" && image_upload != undefined){
+				    	formData.append("file1", image_upload);
+				    }
+				    if(image_upload_2 != "" && image_upload_2 != undefined){
+				    	formData.append("file2", image_upload_2);
+				    }
+				    if(image_upload_3 != "" && image_upload_3 != undefined){
+				    	formData.append("file3", image_upload_3);
+				    }
+				    
+				    
+				    
 				    formData.append("fname", fname);
 				    formData.append("fparam", fparam);
 				    
@@ -505,6 +663,8 @@
 								$(".violationsection").hide();
 								//显示菜单列表
 								$(".menu").show();
+								//隐藏帮助文档
+								$(".helpdocument").hide();
 							}
 						}
 			    	})
@@ -517,9 +677,32 @@
 					$(".violationsection").hide();
 					//显示菜单列表
 					$(".menu").show();
+					//隐藏帮助文档
+					$(".helpdocument").hide();
 			    })
 				
 				//违规举报结束---------------------------------
+				
+				
+				//帮助文档
+				$(".usedocument").on("click", function(){
+					//隐藏违规举报
+					$(".violationsection").hide();
+					//隐藏菜单列表
+					$(".menu").hide();
+					//显示帮助文档
+					$(".helpdocument").show();
+				})
+				
+				//返回菜单列表
+			    $(".helpdocumentback").on("click", function(){
+			    	//隐藏违规举报
+					$(".violationsection").hide();
+					//显示菜单列表
+					$(".menu").show();
+					//隐藏帮助文档
+					$(".helpdocument").hide();
+			    })
 			})
 		</script>
 </html>
